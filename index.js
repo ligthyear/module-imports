@@ -1,24 +1,12 @@
-var glob = require("glob");
 var path = require("path");
 
 module.exports = function(source) {
   this.cacheable();
-  var regex = /import +(\w+) +from +([\'\"])(.*?)\2/gm;
-  var resourceDir = path.dirname(this.resourcePath);
-  function replacer(match, obj, quote, filename) {
-    var modules = [];
-    if (!glob.hasMagic(filename)) return match;
-    var result = glob.sync(filename, {
-      cwd: resourceDir
-    })
-    .map(function(file, index) {
-      var moduleName = obj + index;
-      modules.push(moduleName);
-      return 'import * as ' + moduleName + ' from ' + quote + file + quote;
-    })
-    .join(';\n');
-    result += '\nlet reducers = Object.assign(' + modules.join(', ') + ')';
-    return result;
-  }
-  return source.replace(regex, replacer);
+  var mods = JSON.parse(source).MODULES;
+  if (!mods) throw "No MODULES found in configuration";
+
+  var prefix = this.query ? this.query.slice(1) : "./"
+  return mods.map(function(x){
+    return 'require("' + prefix + 'modules/' + x + '/module.jsx");';
+  }).join("\n");
 };

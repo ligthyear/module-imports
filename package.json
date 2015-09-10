@@ -1,27 +1,21 @@
 {
-  "name": "import-glob",
+  "name": "module-imports",
   "version": "1.0.0",
-  "description": "ES6 import with glob patterns (preloader for Webpack)",
+  "description": "Compile all 'MODULES' passed in as imports (preloader for Webpack)",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
-    "name": "Terpil Jenya",
-    "url": "https://github.com/terpiljenya"
+    "name": "Benjamin Kampmann"
   },
   "keywords": [
     "webpack",
-    "loader",
-    "glob",
-    "es6"
+    "loader"
   ],
-  "dependencies": {
-    "glob": "^5.0.13"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/terpiljenya/import-glob"
+    "url": "git+https://github.com/ligthyear/module-imports"
   }
 }
