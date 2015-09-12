@@ -1,6 +1,6 @@
 {
   "name": "module-imports",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Compile all 'MODULES' passed in as imports (preloader for Webpack)",
   "license": "MIT",
   "main": "index.js",
@@ -17,5 +17,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ligthyear/module-imports"
+  },
+  "dependencies": {
+    "loader-utils": "^0.2.11"
   }
 }
