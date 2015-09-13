@@ -1,6 +1,6 @@
 {
   "name": "module-imports",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Compile all 'MODULES' passed in as imports (preloader for Webpack)",
   "license": "MIT",
   "main": "index.js",

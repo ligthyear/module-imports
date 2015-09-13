@@ -1,14 +1,11 @@
-var path = require("path");
 var utils = require('loader-utils');
 
-module.exports = function(source) {
+module.exports = function(mods) {
   this.cacheable();
 
   var query = utils.parseQuery(this.query),
-      key = query.key || "MODULES",
       prefix = query.path || "./modules/",
-      ext = query.ext || "/module.jsx",
-      mods = JSON.parse(source)[key];
+      ext = query.ext || "/module.jsx";
 
   function make_string(x) { return 'require("' + prefix + x + ext + '");'}
 
